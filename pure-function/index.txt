@@ -1,0 +1,7 @@
+Q.What is Pure Function?
+Ans.
+"A pure function is a function that has two main characteristics:
+It always produces the same output for the same input. In other words, it is deterministic.
+It does not cause any side effects — it does not modify any external state or variables, and it doesn't rely on any external data that could change outside the function."
+
+

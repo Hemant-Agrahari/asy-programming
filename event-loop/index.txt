@@ -1,0 +1,14 @@
+1.JavaScript is single-threaded, meaning it can only execute one operation at a time. However, it needs to handle asynchronous tasks like fetching data from an API or reading from a file without blocking the rest of the code from running.
+
+The event loop is the mechanism that allows JavaScript to handle multiple asynchronous operations without blocking the execution of other code. Here's how it works:
+
+Call Stack: When functions are invoked, they're added to the call stack. The JavaScript engine executes each function in this stack one by one.
+
+Web APIs: When asynchronous operations are called (like setTimeout, fetch, etc.), they are handled by Web APIs (provided by the browser or environment like Node.js) and are offloaded.
+
+Callback Queue (or Task Queue): Once an asynchronous operation completes, its callback function is placed in the callback queue.
+
+Event Loop: The event loop constantly checks the call stack. If the stack is empty, it moves the first callback from the callback queue to the stack for execution.
+
+Execution: The callback function from the queue is executed as soon as the call stack is empty, allowing the asynchronous task to be processed without blocking the main thread.
+
