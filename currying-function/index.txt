@@ -1,0 +1,4 @@
+Q. What is Currying?
+Ans:"Currying is a technique in JavaScript (and functional programming) where a function that takes multiple arguments is transformed into a sequence of functions, each taking one argument at a time. It allows you to apply arguments incrementally rather than all at once."
+
+

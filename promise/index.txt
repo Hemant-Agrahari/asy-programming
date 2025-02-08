@@ -1,0 +1,34 @@
+Q. What is Promise?
+Ans. A Promise is an object representing the eventual completion or failure of an asynchronous operation. It’s a way to handle asynchronous operations more efficiently and avoid "callback hell." It is part of the ECMAScript 6 (ES6) standard.
+
+A Promise has three states:
+Pending: The operation is still in progress.
+Resolved (Fulfilled): The operation completed successfully.
+Rejected: The operation failed, usually due to an error.
+
+A Promise allows you to attach then() and catch() methods to handle the results of the operation once it completes, either successfully or with an error.
+
+2. Why do we use Promises?
+
+Promises simplify working with asynchronous code by making it more readable and maintainable. They provide a cleaner alternative to traditional callbacks. Instead of nesting callbacks (callback hell), we can chain .then() and .catch() for more structured code.
+
+Basis promise structure
+
+const myPromise = new Promise((resolve, reject) => {
+    let success = true; // Simulating some condition
+
+    if (success) {
+        resolve("The operation was successful!"); // Resolving the promise
+    } else {
+        reject("Something went wrong!"); // Rejecting the promise
+    }
+});
+
+// Using the promise
+myPromise
+    .then((message) => {
+        console.log(message); // "The operation was successful!"
+    })
+    .catch((error) => {
+        console.log(error); // "Something went wrong!"
+    });

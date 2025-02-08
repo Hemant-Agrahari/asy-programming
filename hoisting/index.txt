@@ -1,0 +1,36 @@
+Q1. What is Hoisting?
+In JavaScript, hoisting refers to the behavior where the JavaScript engine moves all declarations to the top of their containing scope during the compile phase, before the code has been executed. This means that variables and functions can be used before they are declared in the code.
+
+1.Variable Hoisting:
+
+var Declarations: Variables declared with var are hoisted to the top of their function or global scope and are initialized with undefined. This allows you to reference them before their declaration without causing a ReferenceError, but they will have the value undefined until they are assigned a value.
+example:
+console.log(x); // Output: undefined
+var x = 5;
+console.log(x); // Output: 5
+
+2.let and const Declarations: Variables declared with let and const are also hoisted to the top of their block scope but are not initialized. Accessing them before their declaration results in a ReferenceError due to the "temporal dead zone," which is the time between entering the scope and the variable's declaration.
+
+console.log(x); // ReferenceError: Cannot access 'x' before initialization
+let x = 5;
+
+
+2.Function Hoisting:
+
+i. Function Declarations: Function declarations are hoisted entirely, meaning both the function's name and its body are moved to the top of their scope. This allows you to call the function before its declaration in the code.
+
+greet(); // Output: Hello!
+
+function greet() {
+  console.log('Hello!');
+}
+
+
+ii.Function Expressions: 
+Function Expressions: Functions assigned to variables (function expressions) are hoisted only as variable declarations. The function assignment occurs at runtime, so calling the function before its declaration results in a TypeError because the variable is undefined at that point.
+
+greet(); // TypeError: greet is not a function
+
+var greet = function() {
+  console.log('Hello!');
+};

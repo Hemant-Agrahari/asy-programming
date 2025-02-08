@@ -1,0 +1,52 @@
+Q.Why Use Callbacks?
+Ans.Callbacks are primarily used to handle asynchronous tasks. JavaScript is single-threaded, meaning only one operation can be performed at a time. When a task (e.g., reading from a file, querying a database, etc.) takes time to complete, instead of blocking the execution of other code while waiting for the task, we use callbacks to ensure that the task's result is handled once it's finished.
+
+When to Use Callbacks:
+1.Asynchronous Operations: When performing operations like making network requests (e.g., AJAX), interacting with databases, or using setTimeout/setInterval.
+2.Event Handling: When you need to handle events like user interactions (click, hover) or responses from external systems.
+3.Iterating Over Data: Functions that need to apply a transformation to elements in an array or object, like map(), filter(), forEach().
+
+function fetchData(callback) {
+  setTimeout(() => {
+    console.log("Data fetched from server.");
+    callback();
+  }, 2000);
+}
+
+function processData() {
+  console.log("Processing data...");
+}
+
+fetchData(processData);  // Fetching data and then processing it
+
+
+Why Use Callbacks?
+1.Handling Asynchronous Code: JavaScript often needs to deal with operations that take time (like reading from a file or making HTTP requests). Without callbacks, you'd end up blocking other operations while waiting for the result. Callbacks allow us to keep the execution of other code going while waiting for these tasks to finish.
+2.Control Flow: Callbacks help in controlling the flow of execution. You can specify what should happen next once an asynchronous operation has completed, giving you more control over the program.
+3.Event-driven programming: Callbacks are essential in handling user-driven events, such as clicks, keypresses, or even server responses.
+
+How to Answer This in an Interview:
+When asked about callbacks in an interview, you can break down your answer as follows:
+
+Explain the concept:
+
+A callback is a function passed as an argument to another function and is invoked when the first function completes its task.
+Why use callbacks:
+
+Asynchronous programming: Callbacks are essential for handling asynchronous operations like reading files, making HTTP requests, and processing data asynchronously. This prevents blocking the execution of other tasks while waiting for the result.
+When to use callbacks:
+
+Callbacks are useful in scenarios like event handling (clicks, keypresses), asynchronous tasks (API requests, timers), or even when working with collections of data (arrays, objects) and performing transformations.
+Real-world examples:
+
+"I used callbacks to handle API responses in a web application. For example, once data is fetched from the server, a callback function processes the data and updates the UI without blocking other operations."
+Potential drawbacks:
+
+Callback hell (nested callbacks) can make code hard to manage, so in complex scenarios, Promises or async/await are often preferred as they offer cleaner code and better error handling.
+Example Answer for an Interview:
+Interviewer: "What is a callback in JavaScript? Why and when would you use it?"
+
+You: "A callback is a function passed as an argument to another function and is executed after that function completes its task. It’s primarily used for handling asynchronous operations like making network requests, working with timers, or interacting with files. Since JavaScript is single-threaded, callbacks help avoid blocking the execution of other operations while waiting for an async task to complete. For instance, in event-driven programming or when fetching data from a server, callbacks are crucial. However, if you have too many nested callbacks, it can lead to what’s called 'callback hell,' making the code hard to maintain. In such cases, Promises or async/await are often used to improve readability and flow."
+
+This kind of structured explanation shows your understanding of callbacks and why they’re used, while also acknowledging their limitations and the alternatives available.
+
