@@ -204,12 +204,152 @@ promise
 timeout
 Explanation: The synchronous logs ("start", "end") are logged first. The Promise resolves in the microtask phase, so "promise" is logged before the setTimeout callback "timeout", which is a macrotask.*/
 
-/** */
-/** */
-/** */
-/** */
-/** */
-/** */
+console.log(parseInt("10+2")); //10
+console.log(parseInt("7FM")); //7
+console.log(parseInt("M7F")); //nan
+
+/**The parseInt() function parses a string and returns an integer. It reads the number from the beginning of the string until it encounters a non-numeric character. */
+
+console.log(typeof typeof 344);
+
+/**Explanation:
+Inner typeof 344:
+The value 344 is a number.
+typeof 344 evaluates to "number".
+Outer typeof "number":
+"number" is a string.
+Therefore, typeof "number" evaluates to "string". */
+
+console.log(isNaN("sedfgh"));
+console.log(isNaN("123")); // false (it's a valid number)
+console.log(isNaN("123abc")); // true (cannot fully parse to a number)
+console.log(isNaN(true)); // false (true is coerced to 1)
+
+console.log(
+  [1, 2].map((n) => {
+    if (n > 0) return;
+    return n * 2;
+  })
+);
+
+/** Step-by-Step Breakdown
+First element 1:
+
+1 > 0 is true, so return; executes, which implicitly returns undefined.
+Second element 2:
+
+2 > 0 is also true, so return; executes, and undefined is returned.*/
+
+{
+  function abc() {
+    console.log("asdfghjk");
+  }
+}
+abc();
+/**In non-strict mode, JavaScript hoists functions declared inside block statements {} to the enclosing scope. Therefore, abc() will work even outside the block in most environments.
+ *
+ *
+ * In strict mode ("use strict";), block-scoped function declarations are not hoisted outside the block. Therefore, the following code will throw a ReferenceError:
+ */
+
+// let x = {},
+//   y = { name: "Satish" },
+//   z = { name: "prateek" };
+// x[y] = { name: "salman" };
+// x[z] = { name: "shahruk" };
+// console.log(x[y]);
+
+/** 
+ * In JavaScript, object keys are always strings or symbols, even if you use objects as keys. When an object is used as a key, it is implicitly converted to a string, typically [object Object].
+ * 
+ * 
+ * 
+ * Step-by-Step Breakdown
+Assigning x[y] = { name: 'salman' }:
+
+y is an object { name: 'Satish' }.
+When used as a key in x, y gets stringified to '[object Object]'.
+
+x['[object Object]'] = { name: 'salman' };
+
+Assigning x[z] = { name: 'shahruk' }:
+
+z is another object { name: 'Prateek' }.
+Like y, it also gets stringified to '[object Object]'.
+
+
+x['[object Object]'] = { name: 'shahruk' };
+x['[object Object]'] = { name: 'shahruk' };
+Logging x[y]:
+
+x[y] is essentially x['[object Object]'], which now points to { name: 'shahruk' }.
+ * 
+ * 
+*/
+
+console.log(NaN === NaN); //false
+[x, y, ...z] = [1, 2, 3, 4, 5, 6];
+console.log(z);
+//Output:2,3,4,5,6
+console.log("xyz" - 1); //NaN
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 3000);
+}
+//output:3 3 3
+
+/**Explanation:
+Understanding var Scope:
+
+var is function-scoped, not block-scoped.
+The same i variable is shared across all iterations of the loop.
+Behavior of setTimeout:
+
+The callback inside setTimeout is executed after the entire loop completes, due to JavaScript's event loop.
+By the time the callback executes, the value of i will already be 3 because the loop has finished. */
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 3000);
+}
+// output:0 1 2
+
+const obj = [
+  { key: "Sample1", data: "Data1" },
+  { key: "Sample1", data: "Data1" },
+  { key: "Sample1", data: "Data1" },
+  { key: "Sample2", data: "Data1" },
+  { key: "Sample3", data: "Data1" },
+  { key: "Sample4", data: "Data1" },
+];
+
+const output = {};
+
+obj.forEach((item) => {
+  // Initialize the key with an empty array if it doesn't exist
+  if (!output[item.key]) {
+    output[item.key] = [];
+  }
+  // Push the current item into the array
+  output[item.key].push(item);
+});
+
+console.log(output);
+
+/** {
+  "Sample1": [
+    { "key": "Sample1", "data": "Data1" },
+    { "key": "Sample1", "data": "Data1" },
+    { "key": "Sample1", "data": "Data1" }
+  ],
+  "Sample2": [{ "key": "Sample2", "data": "Data1" }],
+  "Sample3": [{ "key": "Sample3", "data": "Data1" }],
+  "Sample4": [{ "key": "Sample4", "data": "Data1" }]
+}
+*/
 /** */
 /** */
 /** */

@@ -524,4 +524,100 @@ Cleaner and Semantic HTML:
 
 Keeps the structure of your HTML clean and free from redundant tags.
 
+Q.What is useCallback hook?
+Ans.The useCallback hook is a built-in hook in React that allows you to memoize functions to prevent unnecessary re-creations on every render. It is useful when passing functions as props to child components or when a function depends on certain values.
+
+const memoizedCallback = useCallback(() => {
+  // Function logic
+}, [dependencies]);
+
+Why Use useCallback?
+Performance Optimization: Prevents child components from being unnecessarily re-rendered by ensuring the same function instance is passed.
+
+Stable Function References: Useful when functions are passed as dependencies to other hooks like useEffect or as props to child components.
+
+Q.What is useMemo hooks?
+Ans.The useMemo hook in React is used to memoize the result of a computation and optimize performance by avoiding unnecessary recalculations during re-renders. It ensures that the function only recomputes the value when its dependencies change.
+
+example
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+Parameters:
+1.Callback Function: A function that contains the expensive computation logic.
+2.Dependency Array: Variables that the computation depends on. The callback is re-executed only if any of these values change.
+
+Why Use useMemo?
+1.Performance Optimization: Avoids re-running heavy computations during every render.
+2.Referential Stability: Helps maintain stable references for computed values, especially when passed as props to child components.
+
+What is react.strict?
+Ans:React.StrictMode is a tool in React used to highlight potential issues in an application during development. It helps identify unsafe lifecycle methods, side effects, and deprecated APIs, promoting better coding practices and ensuring future compatibility with React updates.
+
+Q: What is the useState Hook?
+Ans: The useState hook in React is a built-in function that allows you to add state management to functional components. It enables components to maintain and update local state values, making them dynamic and interactive.
+syntax:
+const [state, setState] = useState(initialValue);
+
+Parameters:
+initialValue: The initial state value (can be a string, number, boolean, array, object, or even a function).
+Returns:
+state: The current state value.
+setState: A function to update the state.
+
+Q.What is useEffect?
+ans: The useEffect hook in React allows you to perform side effects in functional components. It replaces lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components.
+
+useEffect(() => {
+  // Side effect logic
+  return () => {
+    // Cleanup logic (optional)
+  };
+}, [dependencies]);
+Parameters:
+Callback Function: Contains the side effect logic and optional cleanup.
+Dependencies (array): Determines when the effect should run. React will re-run the effect only if one or more dependencies change.
+
+Q.What is useReducer hook?
+
+Ans: The useReducer hook in React is an alternative to useState for managing complex state logic. It allows state transitions based on specific actions and is particularly useful when the state involves multiple sub-values or complex updates.
+
+const [state, dispatch] = useReducer(reducer, initialState);
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+
+Q.How can we pass data from child component to parent component?
+Ans:In React, data is typically passed from parent to child via props. However, to pass data from a child component to a parent, the parent needs to provide a callback function that the child can call with the data as an argument.
+
+
+Steps to Pass Data from Child to Parent
+Define a function in the parent component.
+Pass the function as a prop to the child component.
+Call the function from the child component and pass the data.
+
+Alternative Methods
+State Management Libraries: Use Redux, Zustand, or Recoil for large-scale applications.
+Context API: Share state across components without explicit prop drilling.
+Event Emitters: For non-React systems, though less common in React itself.
+
+Q: What is Props Drilling?
+Ans: Props drilling is a pattern in React where data is passed from a parent component to deeply nested child components through multiple layers of intermediary components. Each intermediate component must pass the props down, even if they do not directly use the data.
+
+Q.What is the difference between props and state?
+
+
+Q.What is Higher order components?
+Ans. 
+
+Q.What are API methods?
+Ans. 
 

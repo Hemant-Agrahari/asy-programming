@@ -44,3 +44,31 @@ function findHighestOccurrence(arr) {
 const arr = [1, 3, 2, 3, 4, 3, 5, 2, 3];
 const result = findHighestOccurrence(arr);
 console.log(result); // Output: { number: '3', count: 4 }
+
+//function for memoized
+function memoize(fn) {
+  const cache = {}; // Store previous results
+
+  return function (arg) {
+    if (cache[arg]) {
+      console.log("Fetching from cache...");
+      return cache[arg];
+    }
+
+    console.log("Calculating result...");
+    const result = fn(arg);
+    cache[arg] = result;
+    return result;
+  };
+}
+
+// Example function to memoize
+function square(n) {
+  return n * n;
+}
+
+const memoizedSquare = memoize(square);
+
+console.log(memoizedSquare(5)); // Calculating result... 25
+console.log(memoizedSquare(5)); // Fetching from cache... 25
+console.log(memoizedSquare(10)); // Calculating result... 100
