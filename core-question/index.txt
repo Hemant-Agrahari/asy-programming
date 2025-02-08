@@ -229,4 +229,42 @@ console.log(slicedFruits); // ['banana', 'mango']
 console.log(fruits); // ['apple', 'banana', 'mango', 'grape']
 
 
+Q.What is Map,Filter and Reducer?
+Ans.
+
+"map(), reduce(), and filter() are higher-order array methods in JavaScript that help manipulate and transform arrays efficiently."
+
+1.map()-
+map() is an array method in JavaScript that creates a new array by applying a provided function to each element of the original array. It does not modify the original array but returns a transformed version of it.
+
+syntax:
+array.map(callbackFunction(currentValue, index, array), thisArg);
+
+example:
+const numbers = [1, 2, 3, 4];
+const squaredNumbers = numbers.map(num => num * num);
+console.log(squaredNumbers); // [1, 4, 9, 16]
+
+2.Filter()
+
+Answer:
+"filter() is an array method in JavaScript that creates a new array containing elements that satisfy a specific condition defined by a callback function. It does not modify the original array."
+
+array.filter(callbackFunction(currentValue, index, array), thisArg);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6]
+
+3.reducer()
+reduce() is an array method in JavaScript that applies a reducer function to each element in the array and accumulates a single output value. It is commonly used for operations like summing up numbers, flattening arrays, or building complex objects."
+
+syntax:
+array.reduce(callbackFunction(accumulator, currentValue, index, array), initialValue);
+
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // 10
+
+
 
