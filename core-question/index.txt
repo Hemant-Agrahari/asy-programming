@@ -301,4 +301,65 @@ for (let fruit of fruits) {
 Q.What is Apply,call and bind?
 Ans.:
 
+Q.What is the difference between normal function and arrow function?
+Ans.
+"A normal function, also called a regular function or traditional function, is defined using the function keyword in JavaScript. It can be declared and called with its name, and it provides its own this context based on how it's invoked."
+
+"An arrow function is a concise way to write functions introduced in ES6 (ECMAScript 2015). It uses the => syntax and does not have its own this or arguments object, making it ideal for callbacks and functional programming."
+
+Q: How many types of scopes are in JavaScript?
+Ans:"There are mainly three types of scopes in JavaScript: Global, Function, and Block scopes. Scope defines the accessibility and lifetime of variables."
+
+1. Global Scope:
+Variables declared outside any function or block are in the global scope.
+They are accessible from anywhere in the code.
+
+let globalVar = "I am global";
+
+function showGlobalVar() {
+  console.log(globalVar);
+}
+
+showGlobalVar(); // Output: I am global
+
+
+2. Function Scope:
+Variables declared inside a function are in the function scope.
+They are accessible only within that function.
+
+function showMessage() {
+  let message = "Hello from function scope!";
+  console.log(message);
+}
+
+showMessage(); // Output: Hello from function scope!
+// console.log(message); // Error: message is not defined
+
+
+3. Block Scope:
+Variables declared with let or const inside a block ({}) are in block scope.
+They are accessible only within that block.
+{
+  let blockVar = "I am block-scoped";
+  console.log(blockVar); // Output: I am block-scoped
+}
+// console.log(blockVar); // Error: blockVar is not defined
+
+
+Q: What is Lexical Scope in JavaScript?
+Answer:
+"Lexical scope in JavaScript means that the scope of a variable is determined by its position in the source code. Functions are executed with the scope in which they were defined, not where they are called."
+
+function outerFunction() {
+  let outerVar = "I am from outer";
+
+  function innerFunction() {
+    console.log(outerVar); // Can access outerVar due to lexical scope
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+// Output: I am from outer
 
