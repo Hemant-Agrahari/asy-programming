@@ -1,0 +1,232 @@
+Q.What is Sementic element?
+Ans:Semantic elements are HTML tags that convey meaning about the content they enclose, both to developers and browsers. They help structure web pages in a way that's meaningful and accessible.
+Using semantic elements helps with SEO, accessibility, and code readability. These elements allow search engines and screen readers to better understand the structure and purpose of the content on the page
+Eample:Header tag, footer tag and Section tag.
+
+
+Q.What is Difference between position relative and position absolute?
+Ans.
+position:relative
+1.The element is positioned relative to its normal position in the document flow.
+2.It does not affect the layout of other elements around it.
+3.You can use the top, right, bottom, or left properties to move the element from its original position, but the space it originally occupied remains in place.
+
+
+Position Absolute:
+1.The element is positioned relative to its nearest positioned ancestor (i.e., an ancestor with a position of relative, absolute, or fixed). If there is no such ancestor, it will be positioned relative to the initial containing block (usually the <html> element).
+2.It is removed from the normal document flow, meaning it doesn't affect the position of other elements around it.
+3.You can use the top, right, bottom, or left properties to specify its position.
+
+
+Q.What is flexbox?
+Ans.Flexbox, short for 'Flexible Box Layout,' is a powerful layout model in CSS that helps create responsive, flexible web designs. It allows you to easily align, distribute, and space elements within a container, even when their size is dynamic or unknown.
+With Flexbox, you can control the layout of elements along a row or column (one-dimensional layout),
+Example:
+centering content, creating navigation bars, or building complex grid systems without needing to use floats or positioning.
+Common properties:
+flex-direction: Controls the direction of flex items (horizontal or vertical).
+justify-content: Aligns items along the main axis (e.g., horizontally in a row).
+align-items: Aligns items along the cross axis (e.g., vertically in a row).
+flex-grow, flex-shrink, flex-basis: Control how flex items grow, shrink, and their initial size.
+
+Q.What is grid?
+Ans:"CSS Grid Layout is a powerful two-dimensional layout system in CSS. Unlike Flexbox, which operates in one direction (either row or column), Grid allows you to work with both rows and columns at the same time. This makes it ideal for creating more complex layouts, such as grid-based designs, magazine-style layouts, or responsive web pages with multiple elements arranged in a structured way.
+
+Key Features:
+Grid Container: This is the parent element where you apply display: grid; to define a grid.
+Grid Items: The child elements of the grid container that will be placed into the grid structure.
+Key Properties:
+grid-template-columns and grid-template-rows: These properties define how many columns and rows are in your grid and how wide/tall they should be.
+For example, grid-template-columns: 1fr 2fr; would create two columns, with the second one twice as wide as the first.
+grid-gap (or gap): Controls the spacing between rows and columns in the grid.
+grid-template-areas: You can visually design grid layouts by naming specific areas (for example, "header", "sidebar", "content") and placing items into these areas.
+
+
+Q.What is the differenece between flex and grid?
+ans:
+
+Q.What is box-modal?
+ans."Box model in CSS is a fundamental concept that describes how the elements on a web page are structured and how their size is calculated. It defines the space taken by an element and how its content, padding, border, and margin interact with each other. Understanding the box model is crucial when designing layouts and ensuring elements fit and align properly.
+
+The Box Model Components:
+Content: This is the actual content of the element (e.g., text, images). The content area is where the text and other elements are rendered.
+
+Padding: The space between the content and the border. Padding creates spacing inside the element, around the content.
+
+Border: The border surrounds the padding (if any) and content. It can have a specified width, color, and style.
+
+Margin: The space outside the border. Margins create space between the element and other surrounding elements.
+
+Q.What is Eventloop?
+Ans.The Event Loop is a fundamental part of how JavaScript handles asynchronous operations, particularly in environments like browsers and Node.js. It allows JavaScript to perform non-blocking operations, such as handling events, performing I/O operations, and running timers, without freezing or blocking the main thread of execution.
+
+Here's how the event loop works:
+
+Key Concepts:
+Call Stack: This is where the JavaScript engine keeps track of function calls. The call stack is a simple LIFO (Last In, First Out) structure, meaning the most recently called function is always the one that gets executed next.
+
+Heap: This is where dynamic memory allocation happens, i.e., where objects and variables are stored during runtime.
+
+Message Queue (or Task Queue): This queue holds tasks (like event handlers or asynchronous callbacks) that are waiting to be executed. These tasks are typically things like:
+
+Event listener callbacks (e.g., a click event).
+Callback functions from asynchronous operations like setTimeout, setInterval, or network requests.
+Event Loop: This is the mechanism that monitors both the call stack and the message queue. Its job is to keep checking if the call stack is empty, and if it is, it takes the first task from the message queue and pushes it onto the call stack for execution.
+
+
+Q.What is DOM?
+ans."DOM stands for Document Object Model, which is a programming interface for web documents. It represents the structure of a web page as a tree of nodes, where each node is an object representing parts of the document, such as elements, attributes, and text.
+
+When a browser receives HTML or XML data from the server, it uses parsers to convert that structured data into a JavaScript-accessible DOM tree. This allows developers to interact with and dynamically update the content, structure, and styles of a webpage.
+
+How the DOM Works:
+Data from the Server: When the browser receives data (such as HTML, XML, or other structured formats) from the server, it needs a way to make this data interactive for scripts.
+
+Parsing: The browser's built-in parsers convert the HTML (or similar structured data) into a structured JavaScript object model.
+
+DOM Creation: The result is a hierarchical structure where:
+
+HTML tags are represented as element nodes.
+Text content becomes text nodes.
+Attributes are attribute nodes.
+Interactivity: JavaScript can dynamically update, add, or remove elements, styles, and event listeners within this model to create interactive and dynamic user experiences.
+
+Q.What is VDOM?
+"VDOM stands for Virtual Document Object Model. It's an abstraction of the actual DOM and is used to optimize updates and rendering in modern front-end frameworks like React.
+
+In traditional DOM manipulation, every change in the UI triggers updates directly on the real DOM, which can be inefficient and slow due to its complex structure.
+
+With the Virtual DOM, the process works differently:
+
+When the state of a component changes, a Virtual DOM tree (a lightweight copy of the real DOM) is created and updated.
+The framework compares the updated Virtual DOM with the previous version using a technique called diffing to detect changes.
+After identifying the differences, only the necessary changes are applied to the real DOM, improving performance significantly.
+
+Q.What is Hoisting?
+"Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the compilation phase, even before the code is executed.
+
+This means that you can use functions and variables in your code before they are declared, though the behavior differs for variables declared with var, let, and const.
+
+Function Hoisting Example:
+Functions declared with function are fully hoisted, so they can be called before their definition.
+
+
+sayHello(); // Output: Hello World!
+
+function sayHello() {
+  console.log('Hello World!');
+}
+
+Variable Hoisting Example:
+var declarations are partially hoisted — they are defined but initialized with undefined.
+
+
+console.log(a); // Output: undefined
+var a = 10;
+However, variables declared with let and const are hoisted differently. They are placed in the Temporal Dead Zone (TDZ) until their declaration is encountered.
+
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+
+Q.What is closure?
+
+
+Q.What is the difference between rest operator and Spread Operator
+Rest Operator (...)
+The rest operator collects multiple elements or properties into a single array or object. It is used in function parameters or destructuring assignments.
+function sum(...numbers) {
+  return numbers.reduce((acc, num) => acc + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // Output: 10
+
+
+Spread Operator (...)
+The spread operator expands elements of an array, object, or string into individual components. It's used to copy or merge arrays and objects.
+
+const numbers = [1, 2, 3];
+const newNumbers = [0, ...numbers, 4];
+console.log(newNumbers); // [0, 1, 2, 3, 4]
+
+Key Differences
+Aspect	Rest Operator (...)	Spread Operator (...)
+Purpose	Collects elements	Expands elements
+Use Case	Function parameters, destructuring	Array, object copying, merging
+Functionality	Combines into a single variable	Breaks into individual values
+
+
+Q. What is promise?
+Answer:
+"A Promise is an object in JavaScript that represents the eventual completion or failure of an asynchronous operation and its resulting value. It allows you to handle asynchronous operations in a cleaner and more manageable way compared to traditional callback functions."
+
+States of a Promise:
+A Promise has three states:
+
+Pending: The initial state — operation is ongoing.
+Fulfilled: The operation completed successfully.
+Rejected: The operation failed.
+
+const fetchData = new Promise((resolve, reject) => {
+  const success = true; // Simulating an operation
+  setTimeout(() => {
+    if (success) {
+      resolve("Data fetched successfully!");
+    } else {
+      reject("Failed to fetch data.");
+    }
+  }, 1000);
+});
+
+fetchData
+  .then(response => console.log(response))  // Output: Data fetched successfully!
+  .catch(error => console.error(error));
+
+How It Works:
+The Promise constructor takes a function with resolve and reject parameters.
+If the operation succeeds, resolve() is called, transitioning the promise to the fulfilled state.
+If it fails, reject() is called, transitioning it to the rejected state.
+The .then() method handles the success scenario, and .catch() handles errors.
+
+Q.What is callback hell?
+"Callback Hell refers to a situation in JavaScript where multiple nested callback functions are used, creating code that becomes difficult to read, maintain, and debug. This often happens when handling asynchronous operations that depend on each other."
+
+setTimeout(() => {
+  console.log('Step 1');
+  setTimeout(() => {
+    console.log('Step 2');
+    setTimeout(() => {
+      console.log('Step 3');
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+Q.What is the difference betwen splice and slice in js?
+ans.
+"splice() and slice() are both array methods in JavaScript, but they have distinct functionalities:
+array.splice(startIndex, deleteCount, item1, item2, ..., itemN)
+
+
+splice() (Mutates the Original Array):
+Used to add, remove, or replace elements in an array.
+Modifies the original array and returns the removed elements.
+
+let fruits = ['apple', 'banana', 'mango', 'grape'];
+fruits.splice(1, 2, 'orange', 'kiwi');
+console.log(fruits); // ['apple', 'orange', 'kiwi', 'grape']
+
+
+
+slice() (Does Not Mutate the Original Array):
+Extracts a portion of an array without modifying the original.
+Returns a shallow copy of the selected portion.
+array.slice(startIndex, endIndex)
+
+
+let fruits = ['apple', 'banana', 'mango', 'grape'];
+let slicedFruits = fruits.slice(1, 3);
+console.log(slicedFruits); // ['banana', 'mango']
+console.log(fruits); // ['apple', 'banana', 'mango', 'grape']
+
+
+
