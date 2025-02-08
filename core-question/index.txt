@@ -267,4 +267,38 @@ const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentV
 console.log(sum); // 10
 
 
+Q.What is for-of and for-in?
+ans:"for-of and for-in are both loops in JavaScript, but they are used for different types of data iteration."
+
+for-in:
+"for-in is a loop in JavaScript used to iterate over the enumerable properties (keys) of an object or the indices of an array. It returns the property/key names, not the values directly."
+
+const person = { name: "Alice", age: 25, city: "New York" };
+
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+// Output:
+// name: Alice
+// age: 25
+// city: New York
+
+
+for-of:
+Answer:
+"for-of is a loop in JavaScript used to iterate over iterable objects like arrays, strings, maps, sets, and more. It directly accesses the values of the elements rather than their indices or keys."
+
+const fruits = ["apple", "banana", "grape"];
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+// Output:
+// apple
+// banana
+// grape
+
+
+Q.What is Apply,call and bind?
+Ans.:
+
 
