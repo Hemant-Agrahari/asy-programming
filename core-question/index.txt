@@ -363,3 +363,165 @@ function outerFunction() {
 outerFunction();
 // Output: I am from outer
 
+Q.What is life cycle in functional component?
+Ans.
+"In React, functional components do not have traditional lifecycle methods like class components. Instead, lifecycle phases are managed using React Hooks, primarily useEffect. These hooks allow us to handle side effects such as data fetching, DOM updates, and subscriptions."
+
+Lifecycle Phases in Functional Components:
+1.Mounting (Component Initialization):
+
+This phase happens when the component is rendered for the first time.
+Use useEffect(() => {}, []); to handle tasks like fetching data or initializing state.
+example
+
+import { useEffect } from "react";
+
+function MyComponent() {
+  useEffect(() => {
+    console.log("Component mounted!");
+  }, []);
+
+  return <h1>Hello, React!</h1>;
+}
+
+
+2.Updating (Re-rendering on State/Props Changes):
+
+Occurs when the component's state or props change.
+Use useEffect(() => {}, [dependency]); to run code when specific values change.
+Example:
+import { useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(`Count updated to: ${count}`);
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+3.Unmounting (Component Cleanup):
+
+Occurs when the component is removed from the UI.
+Use the cleanup function inside useEffect to handle cleanup tasks like canceling API calls or unsubscribing from events.
+
+import { useEffect } from "react";
+
+function Timer() {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("Timer running...");
+    }, 1000);
+
+    return () => {
+      clearInterval(interval); // Cleanup when component unmounts
+      console.log("Timer stopped.");
+    };
+  }, []);
+
+  return <h1>Timer Component</h1>;
+}
+
+
+
+
+================================================================React/Next.js======================================================================================================
+Q.Q.What is React.js?
+Ans:"React.js is a popular JavaScript library developed by Meta (formerly Facebook) for building user interfaces (UIs), particularly for single-page applications (SPAs). It allows developers to create dynamic and responsive web applications using a component-based architecture."
+
+Advantage:
+1.Component-Based Architecture:
+2.Virtual DOM
+3.Declarative UI
+4.Declarative UI
+5.Unidirectional Data Flow:
+Data flows in a single direction from parent components to child components, making it easier to debug and maintain.
+6.Hooks (State and Lifecycle Management):Hooks like useState and useEffect allow developers to manage state and side effects in functional components.
+
+Q.What is SPA?
+Ans:"A Single-Page Application (SPA) is a web application or website that loads a single HTML page and dynamically updates the content without requiring a full page reload from the server. SPAs deliver a smooth, fast, and app-like user experience by handling most of the interactions on the client side."
+
+How SPAs Work:
+The initial request from the browser fetches the entire application shell (HTML, CSS, and JavaScript).
+As users navigate within the app, the content is updated dynamically using AJAX calls or fetch API without reloading the entire page.
+Client-side routing is used to render different views.
+
+Common Features:
+Dynamic Content Updates: Only the necessary data is fetched and rendered on the page.
+Fast Performance: Since there are fewer full-page reloads, the application feels faster and smoother.
+
+Example of SPAs:
+Gmail: The entire mailbox interface updates dynamically as you navigate between folders.
+Facebook: The page doesn't reload when you check notifications or messages.
+Twitter: The timeline updates with infinite scrolling without refreshing.
+
+Advantages of SPAs:
+Faster Loading Time: After the initial load, content updates are faster.
+Better User Experience: Smooth and seamless interactions.
+Reduced Server Load: Fewer page requests to the server.
+Code Reusability: Can share code between the front-end and back-end.
+
+
+Q.What is Next.js?
+Ans:"Next.js is a React framework built by Vercel that allows developers to build server-side rendered (SSR) and static web applications with ease. It provides features like routing, server-side rendering, static site generation, and API routes out of the box, making it a powerful solution for modern web development."
+
+Key Features of Next.js:
+1.Server-Side Rendering (SSR):
+
+Fetches data and renders pages on the server before sending the HTML to the client.
+Ideal for better SEO and faster page load times.
+
+Q: What is JSX in React?
+Answer:
+"JSX stands for JavaScript XML, and it is a syntax extension for JavaScript used in React. It allows developers to write HTML-like code directly in JavaScript, which React then transforms into React elements using Babel behind the scenes."
+
+Why Use JSX?
+1.Readable and Maintainable Code: It makes the code more readable by combining the structure (HTML) with the logic (JavaScript).
+2.Component-Based Architecture: Easy to build UI components by combining HTML markup and JavaScript in one place.
+3.Compile-Time Optimizations: JSX is compiled into efficient JavaScript for the browser.
+
+Q.What is Fragmentation?
+Ans:"A Fragment in React is a special component provided by React to group multiple child elements without adding extra nodes to the DOM. It helps maintain cleaner and more optimized HTML structures."
+
+Q.Why Promises Have Higher Precedence Than setTimeout() in JavaScript
+In JavaScript's event loop, Promises have a higher priority than setTimeout() because of how they are scheduled in the Microtask Queue and Macrotask Queue.
+
+Event Loop Breakdown
+Call Stack: Executes synchronous code line by line.
+Microtask Queue: Handles higher-priority asynchronous tasks, such as Promises (.then(), .catch(), .finally()) and MutationObserver callbacks.
+Macrotask Queue: Handles lower-priority asynchronous tasks, such as setTimeout(), setInterval(), and I/O operations.
+
+Execution Priority:
+Microtasks (Promises) are executed immediately after the current synchronous code completes.
+Macrotasks (setTimeout) are executed only after the entire Microtask Queue is emptied.
+
+Why Use Fragment?
+Avoids Extra Markup:
+
+Wrapping elements in a <div> can clutter the HTML structure unnecessarily. Fragments solve this by avoiding unnecessary wrapper elements.
+Improved Performance:
+
+Fragments do not introduce extra nodes, which makes rendering more efficient.
+Cleaner and Semantic HTML:
+
+Keeps the structure of your HTML clean and free from redundant tags.
+
+Why Use Fragment?
+Avoids Extra Markup:
+
+Wrapping elements in a <div> can clutter the HTML structure unnecessarily. Fragments solve this by avoiding unnecessary wrapper elements.
+Improved Performance:
+
+Fragments do not introduce extra nodes, which makes rendering more efficient.
+Cleaner and Semantic HTML:
+
+Keeps the structure of your HTML clean and free from redundant tags.
+
+
