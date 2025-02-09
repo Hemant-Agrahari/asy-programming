@@ -347,3 +347,91 @@ function sum(...args) {
 console.log(sum(1, 2, 3, 4)); // Outputs: 10
 
 
+Q.What is the difference between normal function and arrow function?
+Normal Function
+A normal function in JavaScript is a traditional way to declare functions using the function keyword. It has its own this context, can access the arguments object, and can be used as a constructor to create new objects.
+
+Arrow Function:
+An arrow function is a concise way to declare functions introduced in ES6. It does not have its own this context or arguments object and cannot be used as a constructor. It inherits this from the enclosing scope.
+
+
+Q: How many types of scopes are in JavaScript?
+Ans:"There are mainly three types of scopes in JavaScript: Global, Function, and Block scopes. Scope defines the accessibility and lifetime of variables."
+
+1. Global Scope:
+Variables declared outside any function or block are in the global scope.
+They are accessible from anywhere in the code.
+
+let globalVar = "I am global";
+
+function showGlobalVar() {
+  console.log(globalVar);
+}
+
+showGlobalVar(); // Output: I am global
+
+
+2. Function Scope:
+Variables declared inside a function are in the function scope.
+They are accessible only within that function.
+
+function showMessage() {
+  let message = "Hello from function scope!";
+  console.log(message);
+}
+
+showMessage(); // Output: Hello from function scope!
+// console.log(message); // Error: message is not defined
+
+
+3. Block Scope:
+Variables declared with let or const inside a block ({}) are in block scope.
+They are accessible only within that block.
+{
+  let blockVar = "I am block-scoped";
+  console.log(blockVar); // Output: I am block-scoped
+}
+// console.log(blockVar); // Error: blockVar is not defined
+
+Q.What is use-strict mode in js?
+"In JavaScript, use strict is a directive that enforces a stricter set of rules for JavaScript code execution. It helps developers write cleaner, more secure code by preventing common errors and unsafe actions."
+
+Key Features of use strict:
+1.Eliminates Silent Errors: Converts some silent errors into exceptions to make bugs easier to detect.
+2.Prevents the Use of Undeclared Variables: Variables must be declared explicitly using let, const, or var.
+
+Why Use use strict?
+Helps catch errors early in development.
+Makes debugging easier by throwing errors instead of silently failing.
+Improves code security by enforcing better coding practices.
+
+Q.What is the difference between object.freeze and object.ceil in js?
+1. Object.freeze()
+Prevents all modifications to an object.
+Once frozen, you cannot add, delete, or update properties.
+Properties also cannot be reconfigured (e.g., no changing property descriptors).
+
+const person = { name: "Alice" };
+Object.freeze(person);
+
+person.name = "Bob"; // Ignored in non-strict mode, throws error in strict mode
+person.age = 25;     // Cannot add new property
+delete person.name;  // Cannot delete property
+
+console.log(person); // Outputs: { name: "Alice" }
+
+
+2. Object.seal()
+Prevents adding or deleting properties, but allows modifying existing properties.
+Property descriptors (like writable) cannot be changed, but the values can still be updated.
+
+const person = { name: "Alice" };
+Object.seal(person);
+
+person.name = "Bob"; // Allowed: Can update property value
+person.age = 25;     // Not allowed: Cannot add new property
+delete person.name;  // Not allowed: Cannot delete property
+
+console.log(person); // Outputs: { name: "Bob" }
+
+
