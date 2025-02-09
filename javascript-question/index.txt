@@ -1,0 +1,349 @@
+Q.What is
+
+
+Q.What is JavaScript?
+Ans.JavaScript is a popular programming language that makes websites interactive and dynamic. Think of it as the magic that transforms a boring static page into an engaging user experience. While HTML provides the structure and CSS handles the design, JavaScript adds functionality—like showing alerts, validating forms, creating animations, and fetching data without reloading the page.
+It’s widely used in web development and works both on the client-side (the part you see in your browser) and server-side (using Node.js). The language is flexible, event-driven, and supports asynchronous programming, making it great for building smooth and fast applications.
+
+Developers also use JavaScript frameworks and libraries like React, Next.js, and Vue.js to build modern and scalable applications faster."
+
+Q.What is hoisting?
+In JavaScript, hoisting is a default behavior where the declarations of variables, functions, and classes are moved to the top of their scope during the compilation phase, even before the code is executed. This allows you to use functions and variables before they are defined in your code. However, only the declaration is hoisted—not the actual assignment or initialization.
+
+Example:
+Variable Hoisting (var, let, const)
+var: Declarations are hoisted and initialized with undefined.
+let and const: Declarations are hoisted but are not initialized, resulting in a "Temporal Dead Zone (TDZ)" until the code reaches the declaration.
+console.log(x); // undefined (hoisted but uninitialized)
+var x = 5;
+
+console.log(y); // ReferenceError (in TDZ)
+let y = 10;
+
+function hoisting:
+greet(); // Outputs: Hello!
+
+function greet() {
+  console.log("Hello!");
+}
+
+/*Functions declared using the function keyword are fully hoisted, meaning you can call them even before they are defined:*/
+
+
+3.What is the difference between var ,let and const?
+1️⃣ var:
+Scope: Function-scoped (visible within the function where it's declared).
+Hoisting: Hoisted and initialized with undefined.
+Reassignment: Can be reassigned and redeclared.
+Best Avoided: It's prone to bugs due to its hoisting behavior and lack of block scoping.
+
+Example:
+if (true) {
+  var x = 5;
+}
+console.log(x); // 5 (accessible outside the block)
+
+2️⃣ let:
+Scope: Block-scoped (only available within the nearest {} block).
+Hoisting: Hoisted but not initialized, meaning it remains in the "Temporal Dead Zone" until assigned.
+Reassignment: Can be reassigned but cannot be redeclared in the same scope.
+Preferred Choice: Use let when you need a variable that will change.
+if (true) {
+  let y = 10;
+}
+console.log(y); // ReferenceError (not accessible outside the block)
+
+3️⃣ const:
+Scope: Block-scoped, like let.
+Hoisting: Also hoisted but not initialized (remains in Temporal Dead Zone).
+Reassignment: Cannot be reassigned or redeclared (but if it holds an object or array, the contents can still be changed).
+Best for Constants: Use const when the variable value should remain constant.
+
+const z = 20;
+z = 30; // TypeError: Assignment to constant variable
+
+
+3.What is Event loop?
+The event loop is a core part of JavaScript’s runtime environment that handles asynchronous operations. It allows JavaScript, which is single-threaded, to perform non-blocking tasks such as API calls, timers, and DOM events while continuing to execute other code.
+
+How It Works:
+"When the JavaScript code runs, all the synchronous tasks are executed in the call stack. Asynchronous tasks like API requests or setTimeout functions are sent to the web APIs (in the browser environment) or the event queue (Node.js environment). Once the current stack is empty, the event loop picks tasks from the queue and pushes them onto the stack for execution."
+
+4.What is Babel,webpack and parse?
+1. Webpack:
+"Webpack is a powerful module bundler for JavaScript applications. It takes all your project's files—JavaScript, images, CSS, etc.—and bundles them into a single or multiple optimized output files that can be efficiently loaded by a browser."
+
+Why use Webpack:
+
+Manages dependencies and modules.
+Supports plugins and loaders for tasks like transpiling, image compression, and CSS preprocessing.
+Optimizes the application for faster loading.
+
+2. Babel:
+"Babel is a JavaScript compiler that converts modern JavaScript (ES6+ and beyond) into backward-compatible code that can run in older browsers."
+
+Why use Babel:
+
+Transforms ES6+ code into ES5 for better browser compatibility.
+Supports JSX transformation in React applications.
+Enables features like TypeScript and polyfills.
+
+5.What is the difference between shallow copy and deep copy?
+Shallow copy:
+A shallow copy copies only the top-level properties. If the object contains nested objects or arrays, it only copies the reference to those nested structures, not the actual values.
+Changes made to the nested object will affect both the original and the copy.
+
+Example:
+const original = { name: "John", address: { city: "New York" } };
+const shallowCopy = { ...original };
+
+shallowCopy.address.city = "Los Angeles";
+
+console.log(original.address.city); // Outputs: "Los Angeles"
+
+Deep Copy:
+A deep copy creates an entirely independent copy of the object, including all nested objects.
+Changes to the copied object do not affect the original object.
+
+example
+const original = { name: "John", address: { city: "New York" } };
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.address.city = "Los Angeles";
+
+console.log(original.address.city); // Outputs: "New York"
+
+
+6.What is the differenece between for-in loop and for-of loop?
+"The main difference between for-in and for-of loops is in what they iterate over. for-in iterates over the keys (or property names) of an object, while for-of iterates over the actual values of an iterable, like arrays or strings."
+
+const person = { name: "John", age: 30 };
+for (let key in person) {
+  console.log(key); // Outputs: name, age
+}
+
+const fruits = ["apple", "banana", "cherry"];
+for (let fruit of fruits) {
+  console.log(fruit); // Outputs: apple, banana, cherry
+}
+
+
+7.What is the difference between find and filter method?
+"The key difference between find() and filter() is that find() returns the first matching element, while filter() returns an array of all matching elements."
+
+8.What is the difference between map and foreach method?
+"The difference between map() and forEach() is that map() returns a new array with transformed elements, whereas forEach() simply executes a function for each element and does not return anything."
+
+9.What is the difference between slice and splice method?
+"The main difference between slice() and splice() is that slice() is used to create a new array without modifying the original array, while splice() directly modifies the original array by adding or removing elements."
+
+const numbers = [1, 2, 3, 4, 5];
+const sliced = numbers.slice(1, 4); 
+console.log(sliced); // Outputs: [2, 3, 4]
+console.log(numbers); // Original array remains unchanged: [1, 2, 3, 4, 5]
+note:Does not include the last index: The second parameter in slice(start, end) is exclusive. The element at the end index is not included.
+
+
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.splice(1, 3); 
+console.log(result); // Outputs: [2, 3, 4] (Removes 3 elements starting from index 1)
+console.log(numbers); // Outputs: [1, 5]
+
+Note:Includes the last index (based on the count): The second parameter in splice(start, deleteCount, ...items) specifies the number of elements to be removed, starting from the start index.
+
+
+7.What is the difference between map,filter and reducer?
+1. map() Definition:
+"The map() method is used to create a new array by applying a provided function to each element in the original array without modifying it."
+2. filter() Definition:
+"The filter() method creates a new array with elements that pass a specific condition defined in the callback function."
+3. reduce() Definition:
+"The reduce() method reduces an array to a single value by applying a callback function that accumulates results over each element."
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // Outputs: 10
+
+
+8.What is callback function?
+A callback function in JavaScript is a function that is passed as an argument to another function and is executed at a later time, usually after an asynchronous operation or specific event
+example:
+function greet(name, callback) {
+  console.log(`Hello, ${name}`);
+  callback();
+}
+
+function afterGreet() {
+  console.log("This is a callback function.");
+}
+
+greet("John", afterGreet);
+// Outputs:
+// Hello, John
+// This is a callback function.
+
+9.What is Promise?
+A Promise in JavaScript is an object that represents the eventual completion or failure of an asynchronous operation and its resulting value.
+Why Use Promises?
+To handle asynchronous operations like fetching data from APIs or reading files.
+Promises provide a cleaner and more manageable alternative to nested callbacks (Callback Hell).
+
+Promise States
+Pending: The initial state, operation not completed yet.
+Fulfilled: Operation completed successfully; a value is returned.
+Rejected: Operation failed; an error is returned.
+
+example:
+const fetchData = new Promise((resolve, reject) => {
+  let success = true;
+
+  if (success) {
+    resolve("Data fetched successfully!");
+  } else {
+    reject("Data fetch failed!");
+  }
+});
+
+fetchData
+  .then(result => console.log(result)) // Outputs: Data fetched successfully!
+  .catch(error => console.log(error)); // If rejected, it outputs: Data fetch failed!
+
+Key Methods
+then(): Handles the success case (fulfilled).
+catch(): Handles the error case (rejected).
+finally(): Executes code regardless of success or failure.
+
+10.What is Async-await?
+"In JavaScript, async and await are keywords that make it easier to work with Promises and handle asynchronous operations in a cleaner and more readable way, similar to synchronous code."
+
+How async and await Work
+async: Declares a function as asynchronous and ensures it returns a Promise.
+await: Pauses the execution of the function until the Promise is resolved or rejected.
+
+Why Use async/await?
+Readable and cleaner code: Avoids nested .then() chains found in Promises.
+Error handling: Use simple try...catch blocks to handle errors.
+
+const fetchData = async () => {
+  try {
+    const response = await fetch("https://api.example.com/data");
+    const data = await response.json();
+    console.log("Data fetched:", data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+fetchData();
+
+
+11.What is closure?
+"In JavaScript, a closure is created when a function retains access to its lexical scope (variables defined outside its own scope) even after the outer function has finished executing."
+
+Why Use Closures?
+Data encapsulation: Protects variables from being accessed or modified directly from outside the function.
+Preserve state: Retain variable values even after the function execution is complete.
+Create private variables: Useful for maintaining private counters or methods.
+Why Use Closures?
+Data encapsulation: Protects variables from being accessed or modified directly from outside the function.
+Preserve state: Retain variable values even after the function execution is complete.
+Create private variables: Useful for maintaining private counters or methods.
+
+function outerFunction() {
+  let count = 0; // Variable in the outer scope
+
+  function innerFunction() {
+    count++; // Inner function retains access to `count`
+    console.log(`Current count: ${count}`);
+  }
+
+  return innerFunction;
+}
+
+const counter = outerFunction();
+counter(); // Outputs: Current count: 1
+counter(); // Outputs: Current count: 2
+
+12.What is currying?
+In JavaScript, currying is a technique of transforming a function that takes multiple arguments into a sequence of functions, each taking a single argument."
+
+Why Use Currying?
+Reusable functions: Allows partial application of functions.
+Higher-order functions: Useful in functional programming.
+Improved readability: Helps create more readable and composable code.
+
+
+function add(a) {
+  return function(b) {
+    return a + b;
+  };
+}
+
+const add5 = add(5);  // Partially applied function
+console.log(add5(3)); // Outputs: 8
+console.log(add(2)(3)); // Outputs: 5
+
+9.What is the ES6 feature?
+1. Block-Scoped Declarations: let and const
+let: Block-scoped variable declaration (can be reassigned).
+const: Block-scoped, immutable variable declaration (cannot be reassigned).
+
+2. Arrow Functions
+Cleaner syntax for functions and no re-binding of this.
+
+3. Template Literals
+Simplifies string interpolation with backticks `.
+
+
+4. Destructuring Assignment
+Extract values from arrays or properties from objects.
+
+5. Default Parameters
+Assign default values to function parameters.
+
+6. Spread and Rest Operators (...)
+Spread: Expands array or object elements.
+Rest: Collects multiple elements into an array.
+
+7. Modules (import and export)
+Import and export functionalities between files.
+
+9. Promises
+Simplifies handling asynchronous operations.
+
+10.What is the difference between rest and spread operator?
+Spread Operator (...)
+The spread operator in JavaScript is used to expand or unpack elements from arrays, objects, or other iterable structures into individual values. It is commonly used for copying, merging, or passing elements as arguments in functions.
+
+Example:
+a.copy an array
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1]; // Creates a new copy of arr1
+arr2.push(4);
+console.log(arr1); // Outputs: [1, 2, 3] (Unchanged)
+console.log(arr2); // Outputs: [1, 2, 3, 4]
+
+b.Merge Objects:
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = { ...obj1, ...obj2 };
+console.log(merged); // Outputs: { a: 1, b: 3, c: 4 }
+
+c.Spread as Function Arguments:
+
+const numbers = [1, 2, 3];
+const sum = (a, b, c) => a + b + c;
+console.log(sum(...numbers)); // Outputs: 6
+
+
+The Rest operator does the opposite—it collects (gathers) multiple values and bundles them into an array or object. It is useful for handling a variable number of function arguments or extracting remaining elements during destructuring.
+
+When to Use the Rest Operator:
+Handle Dynamic Arguments in Functions: When the number of arguments is not fixed.
+Destructuring Remaining Elements: Extract specific elements while grouping the rest.
+
+function sum(...args) {
+  return args.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3, 4)); // Outputs: 10
+
+
