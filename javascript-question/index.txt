@@ -435,3 +435,22 @@ delete person.name;  // Not allowed: Cannot delete property
 console.log(person); // Outputs: { name: "Bob" }
 
 
+What is the difference between event bubbling and event capturing?
+Ans.
+Event Bubbling:
+Event bubbling is the process by which an event that is triggered on an element propagates upward through its ancestors in the DOM hierarchy. The event starts from the innermost target element and bubbles up to the outer elements, triggering any event listeners attached to those elements along the way.
+
+Example:
+If you click a button inside a div, the button's event handler runs first, followed by the div's event handler, and then any handlers on its parent elements.
+
+Event Capturing:
+Event capturing (or trickling) is the opposite of event bubbling. The event starts from the topmost ancestor of the target element and propagates downward toward the target element. In this phase, event listeners attached to parent elements are triggered first, before reaching the target element.
+
+Q.When to use promise and when to use async-await?
+Ans.
+
+Q.What is object proto-type in js?
+Ans.In JavaScript, prototype is an object that is associated with every function and object by default. It is used to add properties and methods to the function's instances or objects. All JavaScript objects inherit their properties and methods from their prototype chain, which is what enables inheritance in JavaScript.
+
+Q.What is VDOM?
+Ans.

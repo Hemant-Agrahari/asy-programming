@@ -24,26 +24,18 @@ const occurrenceMap = arr1.reduce((acc, item) => {
 // Print the result
 console.log(occurrenceMap);
 
-//find occurence
-function findHighestOccurrence(arr) {
-  const frequencyMap = arr.reduce((acc, num) => {
-    acc[num] = (acc[num] || 0) + 1;
-    return acc;
-  }, {});
+//find occurence of a element program
+const arr = ["a", "a", "c", "d", "a", "a"];
+// Create a frequency object
+const frequency = {};
+// Count the occurrences of each element
+arr.forEach((item) => (frequency[item] = (frequency[item] || 0) + 1));
+// Find the element with the highest frequency
+const maxElement = Object.keys(frequency).reduce((a, b) =>
+  frequency[a] > frequency[b] ? a : b
+);
 
-  const highestNumber = Object.keys(frequencyMap).reduce((a, b) =>
-    frequencyMap[a] > frequencyMap[b] ? a : b
-  );
-
-  return {
-    number: highestNumber,
-    count: frequencyMap[highestNumber],
-  };
-}
-
-const arr = [1, 3, 2, 3, 4, 3, 5, 2, 3];
-const result = findHighestOccurrence(arr);
-console.log(result); // Output: { number: '3', count: 4 }
+console.log(`${maxElement}: ${frequency[maxElement]}`);
 
 //function for memoized
 function memoize(fn) {
@@ -68,7 +60,6 @@ function square(n) {
 }
 
 const memoizedSquare = memoize(square);
-
 console.log(memoizedSquare(5)); // Calculating result... 25
 console.log(memoizedSquare(5)); // Fetching from cache... 25
 console.log(memoizedSquare(10)); // Calculating result... 100

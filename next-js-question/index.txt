@@ -253,6 +253,10 @@ Q.What is the difference between axios and fetch?
 5.Request Cancellation: Axios supports request cancellation using CancelToken, while Fetch has limited support.
 
 
+Q.What is stateless component?
+A stateless component in React is a component that does not maintain its own state. It is simply a function that receives props and renders the UI based on those props. Stateless components are also sometimes referred to as functional components, especially after the introduction of React hooks.
 
-
-
+Characteristics of Stateless Components:
+No local state: They don't manage any internal state using useState or this.state.
+Pure UI: Their role is to receive data (props) and render a presentation, with no side effects.
+Function-based: They are typically created as functions (i.e., function components).
