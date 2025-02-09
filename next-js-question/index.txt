@@ -1,0 +1,87 @@
+1. What is SSR?
+Ans:
+Server-Side Rendering (SSR) is a technique where HTML content is generated on the server and sent to the client's browser. Instead of the browser fetching data and rendering pages, the server delivers pre-rendered content for faster initial load times.
+
+How it Works:
+A request is made from the client to the server.
+The server processes the request, fetches data if necessary, and compiles the content into HTML.
+The fully rendered HTML is sent back to the client.
+The client displays the content, and JavaScript takes over for interactivity if needed.
+
+Benefits:
+SEO-Friendly: SSR provides search engines with fully rendered content, improving SEO performance.
+Faster First Page Load: Since the server pre-renders content, the user gets meaningful content more quickly.
+Better Performance on Low-End Devices: Shifts the rendering responsibility to the server rather than the user's device.
+
+2.What is Static site generation?
+Ans.Static Site Generation (SSG) is a technique where HTML pages are pre-rendered at build time. The content is generated once during the build process and then served as static files when users request the pages.
+
+How It Works:
+During the build process, the application generates static HTML files for each page.
+These files are deployed to a content delivery network (CDN) for fast delivery.
+When users request a page, the server serves the pre-rendered HTML without additional processing.
+
+Benefits:
+Fast Performance: Since pages are pre-rendered, load times are extremely fast.
+Scalability: Easy to scale by serving static files from a CDN.
+SEO-Friendly: Search engines receive fully rendered pages.
+Reduced Server Load: No dynamic server processing for each request.
+
+"In Next.js, SSG can be achieved using the getStaticProps and getStaticPaths functions."
+
+3.What is Client Site Rendering?
+Client-Side Rendering (CSR) is a rendering technique where the browser receives a minimal HTML shell from the server, and JavaScript is executed on the client to render the content dynamically.
+
+How it Works:
+The initial request sends back a minimal HTML file with JavaScript bundled.
+The browser downloads the JavaScript and executes it to fetch additional data and render the complete page.
+
+Benefits:
+Rich Interactivity: Best for applications requiring dynamic interactions and user-driven experiences.
+Seamless UI Transitions: Faster in-app navigation after the initial load.
+Efficient for SPAs (Single Page Applications): Good for dashboards and admin panels.
+
+When to Use CSR Instead of SSR or SSG:
+Highly interactive dashboards or admin panels.
+Applications where SEO isn't critical (internal tools).
+Real-time data updates (like chat applications).
+
+
+4. What is nextjs?
+"Next.js is a React-based framework developed by Vercel that enables developers to build server-rendered and statically generated web applications with ease. It enhances the development experience by providing built-in features such as routing, API handling, and image optimization."
+
+Key Features of Next.js:
+Hybrid Rendering (SSR, SSG, and CSR):
+Supports server-side rendering, static site generation, and client-side rendering to handle different application requirements.
+
+File-Based Routing:
+Organizes routes based on the file system in the pages/ or app/ directory.
+
+API Routes:
+Enables developers to create serverless API endpoints in the same project under the /api directory.
+
+Automatic Code Splitting:
+Loads only the JavaScript needed for a page, improving performance.
+
+Image Optimization:
+The next/image component optimizes images for better performance.
+
+Incremental Static Regeneration (ISR):
+Allows static pages to be updated without rebuilding the entire site.
+
+Built-In SEO Support:
+Offers easy ways to manage metadata for SEO using the Head component.
+
+Middleware and Edge Functions:
+Allows you to run code at the edge closer to users for faster request handling.
+
+
+Why Use Next.js:
+Performance: Faster initial load with hybrid rendering.
+SEO Optimization: Ideal for SEO-critical applications with pre-rendering options.
+Developer Productivity: Built-in API routes, routing, and middleware reduce setup time.
+Scalability: Supports both server-rendered and static applications.
+Full Stack Support: Serverless API routes for backend integration.
+
+
+5.
