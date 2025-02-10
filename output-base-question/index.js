@@ -350,6 +350,13 @@ console.log(output);
   "Sample4": [{ "key": "Sample4", "data": "Data1" }]
 }
 */
+function x() {
+  setTimeout(function () {
+    console.log(i);
+  }, 1000);
+  var i = 1;
+}
+x();
 /** */
 /** */
 /** */

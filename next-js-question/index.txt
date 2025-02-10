@@ -260,3 +260,16 @@ Characteristics of Stateless Components:
 No local state: They don't manage any internal state using useState or this.state.
 Pure UI: Their role is to receive data (props) and render a presentation, with no side effects.
 Function-based: They are typically created as functions (i.e., function components).
+
+Q.Why introduce functional component when we have class based component?
+ans
+When you write a class-based component, React internally compiles it into a functional component anyway. This is because React's reconciliation algorithm (which is responsible for efficiently updating the UI) is optimized to work with functional components. Over time, React has become more efficient in handling the internals of functional components.
+
+
+Q.What is Redux?
+ans.Redux is a state management library for JavaScript applications, commonly used with React (though it can be used with any JavaScript framework). It provides a predictable way to manage the state of your application in a central store and allows components to interact with this state in a consistent manner.
+
+
+
+Q.What is IIFE?
+ans.
